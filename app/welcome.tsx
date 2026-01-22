@@ -7,13 +7,11 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
     Image,
-    ImageStyle,
     Pressable,
     StyleSheet,
     Text,
     TextStyle,
     View,
-    ViewStyle,
 } from "react-native";
 
 const Welcome = () => {
@@ -22,7 +20,7 @@ const Welcome = () => {
     <ScreenWrapper bg="white">
       <StatusBar style="dark" />
       <View style={styles.container}>
-        {/* welcome image */}
+        {/* welcome Image */}
         <Image
           style={styles.welcomeImage}
           resizeMode="contain"
@@ -42,11 +40,11 @@ const Welcome = () => {
           <Button
             title="Getting Started"
             buttonStyle={{ marginHorizontal: wp(3) }}
-            onPress={() => router.push("signUp")}
+            onPress={() => router.push("/signUp")}
           />
           <View style={styles.bottomTextContainer}>
             <Text style={styles.loginText}>Already have an account!</Text>
-            <Pressable onPress={() => router.push("login")}>
+            <Pressable onPress={() => router.push("/login")}>
               <Text
                 style={[
                   styles.loginText,
@@ -68,15 +66,7 @@ const Welcome = () => {
 
 export default Welcome;
 
-const styles = StyleSheet.create<{
-  container: ViewStyle;
-  welcomeImage: ImageStyle;
-  title: TextStyle;
-  punchline: TextStyle;
-  footer: ViewStyle;
-  bottomTextContainer: ViewStyle;
-  loginText: TextStyle;
-}>({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",

@@ -8,7 +8,14 @@ import { hp, wp } from "@/helpers/common";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useRef, useState } from "react";
-import { Pressable, StyleSheet, Text, TextStyle, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+} from "react-native";
 
 const SignUp = () => {
   const router = useRouter();
@@ -18,6 +25,28 @@ const SignUp = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const onSubmit = async () => {
     // handle sign up logic here
+    if (!emailRef.current || !passwordRef.current || !nameRef.current) {
+      Alert.alert("Sign Up", "Please fill all the fields");
+      return;
+    }
+    let name = nameRef.current.trim();
+    let email = emailRef.current.trim();
+    let password = passwordRef.current;
+    // setLoading(true);
+
+    // const {data:{session},error} = await supabase.auth.signUp({
+    //   email,
+    //   password,
+    // })
+
+    // setLoading(false);
+
+    // console.log("Session ",session)
+    // console.log("error",error)
+
+    // if(error){
+    //   Alert.alert("Sign Up", error.message);
+    // }
   };
 
   return (
