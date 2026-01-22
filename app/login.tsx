@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useRef, useState } from "react";
@@ -28,23 +29,22 @@ const Login = () => {
       Alert.alert(`Login`, "please fill all the fields!");
       return;
     }
-    // // good to go
-    // let email = emailRef.current.trim();
-    // let password = passwordRef.current.trim();
+    let email = emailRef.current.trim();
+    let password = passwordRef.current.trim();
 
-    // setLoading(true);
+    setLoading(true);
 
-    // const { error } = await supabase.auth.signInWithPassword({
-    //   email,
-    //   password,
-    // });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    // setLoading(false);
+    setLoading(false);
 
-    // console.log("error: ", error);
-    // if (error) {
-    //   Alert.alert("Login", error.message);
-    // }
+    console.log("error: ", error);
+    if (error) {
+      Alert.alert("Login", error.message);
+    }
   };
   return (
     <ScreenWrapper bg="white">
