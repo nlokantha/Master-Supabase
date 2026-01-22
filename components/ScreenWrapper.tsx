@@ -3,7 +3,7 @@ import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface ScreenWrapperProps {
-    children: React.ReactNode;
+    children: React.ReactNode ;
     bg?: string;
 }
 
